@@ -12,14 +12,13 @@ public class Ctl {
 
     @ApiOperation("删除用户1")
     @RequestMapping("/hello1")
-    public String sayHello(@Validated User user) {
+    public String sayHello(String astr) {
         log.info("hello1");
-        return "谢谢观看" + user.getName();
+        return "谢谢观看:"+astr;
     }
 
-    @ApiOperation("删除用户2")
     @RequestMapping("/hello2")
-    public String sayHello2(User user) {
+    public String sayHello2(@Validated User user) {
         log.info("hello2");
         return "谢谢观看" + user.getName();
     }
