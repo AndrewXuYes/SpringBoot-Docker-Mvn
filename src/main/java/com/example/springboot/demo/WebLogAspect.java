@@ -1,4 +1,4 @@
-package com.example.springboot.demo.Aop;
+package com.example.springboot.demo;
 
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
@@ -8,8 +8,6 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,7 +22,6 @@ import java.util.stream.Collectors;
 @Aspect
 @Component
 @Slf4j
-@Order(1)
 public class WebLogAspect {
 
     @Pointcut("execution(public * com.example.springboot.demo..*.*(..))")
@@ -38,7 +35,7 @@ public class WebLogAspect {
                 .filter(arg -> (!(arg instanceof HttpServletRequest) && !(arg instanceof HttpServletResponse)))
                 .collect(Collectors.toList());
         try {
-            log.info("请求参数={}",  JSON.toJSONString(logArgs));
+            log.info("请求参数={}", JSON.toJSONString(logArgs));
         } catch (Exception e) {
             log.error("请求参数获取异常", e);
         }
@@ -47,7 +44,7 @@ public class WebLogAspect {
         //执行时长(毫秒)
         long time = System.currentTimeMillis() - beginTime;
         try {
-            log.info("请求耗时={}ms, 返回结果={}", time, JSON.toJSONString(result));
+            log.info(" 返回结果={},请求耗时={}ms", JSON.toJSONString(result), time);
         } catch (Exception e) {
             log.error("返回参数获取异常", e);
         }
