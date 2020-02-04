@@ -6,7 +6,6 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,6 +30,7 @@ public class WebLogAspect {
     @Around("webLog()")
     public Object around(ProceedingJoinPoint point) throws Throwable {
         long beginTime = System.currentTimeMillis();
+        //输入流
         List<Object> logArgs = Arrays.stream(point.getArgs())
                 .filter(arg -> (!(arg instanceof HttpServletRequest) && !(arg instanceof HttpServletResponse)))
                 .collect(Collectors.toList());
@@ -39,7 +39,7 @@ public class WebLogAspect {
         } catch (Exception e) {
             log.error("请求参数获取异常", e);
         }
-
+        //输出流
         Object result = point.proceed();
         //执行时长(毫秒)
         long time = System.currentTimeMillis() - beginTime;
