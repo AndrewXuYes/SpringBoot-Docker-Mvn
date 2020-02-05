@@ -1,5 +1,6 @@
-package com.example.springboot.demo;
+package com.example.springboot.demo.Ctl;
 
+import com.example.springboot.demo.Dto.User;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.java.Log;
 import org.springframework.validation.annotation.Validated;
