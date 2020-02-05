@@ -9,13 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Log
-public class Ctl {
+public class CtlHello {
+
 
     @ApiOperation("删除用户1")
     @RequestMapping("/hello1")
     public String sayHello(String astr) {
         log.info("hello1");
-        return "谢谢观看:"+astr;
+        return "谢谢观看:" + astr;
     }
 
     @RequestMapping("/hello2")
@@ -23,4 +24,6 @@ public class Ctl {
         log.info("hello2");
         return "谢谢观看" + user.getName();
     }
+
+
 }

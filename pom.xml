@@ -21,11 +21,6 @@
 
     <dependencies>
 
-        <dependency>
-            <groupId>redis.clients</groupId>
-            <artifactId>jedis</artifactId>
-            <version>2.9.0</version>
-        </dependency>
         <!-- swagger2 -->
         <dependency>
             <groupId>io.springfox</groupId>
@@ -55,7 +50,11 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.38</version>
         </dependency>
-
+        <!-- apache -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>

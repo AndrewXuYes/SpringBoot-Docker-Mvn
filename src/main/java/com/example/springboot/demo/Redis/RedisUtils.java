@@ -1,11 +1,15 @@
-package com.example.springboot.demo.Utils;
+package com.example.springboot.demo.Redis;
 
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.connection.DataType;
 import org.springframework.data.redis.core.Cursor;
 import org.springframework.data.redis.core.ScanOptions;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ZSetOperations.TypedTuple;
+import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.*;
 import java.util.Map.Entry;
@@ -19,8 +23,51 @@ import java.util.concurrent.TimeUnit;
  * @date 2018-02-24 下午03:09:50
  */
 @Data
-public class RedisUtil {
+@Slf4j
+@Service
+public class RedisUtils {
+
+    @Autowired
     private StringRedisTemplate redisTemplate;
+
+    /***
+     * 分布式加锁
+     * @param key
+     * @param value 当前时间+超时时间
+     * @return 锁住返回true
+     */
+    public boolean lock(String key, String value) {
+        if (redisTemplate.opsForValue().setIfAbsent(key, value)) {//setNX 返回boolean
+            return true;
+        }
+        //如果锁超时 ***
+        String currentValue = redisTemplate.opsForValue().get(key);
+        if (!StringUtils.isEmpty(currentValue) && Long.parseLong(currentValue) < System.currentTimeMillis()) {
+            //获取上一个锁的时间
+            String oldvalue = redisTemplate.opsForValue().getAndSet(key, value);
+            if (!StringUtils.isEmpty(oldvalue) && oldvalue.equals(currentValue)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /***
+     * 分布式解锁
+     * @param key
+     * @param value
+     * @return
+     */
+    public void unlock(String key, String value) {
+        try {
+            String currentValue = redisTemplate.opsForValue().get(key);
+            if (!StringUtils.isEmpty(currentValue) && currentValue.equals(value)) {
+                redisTemplate.opsForValue().getOperations().delete(key);
+            }
+        } catch (Exception e) {
+            log.error("解锁异常");
+        }
+    }
 
 
     /** -------------------key相关操作--------------------- */
