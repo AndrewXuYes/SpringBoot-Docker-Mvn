@@ -1,5 +1,6 @@
 package com.example.springboot.demo.Redis;
 
+import cn.hutool.core.util.StrUtil;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,7 @@ import org.springframework.data.redis.core.ScanOptions;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ZSetOperations.TypedTuple;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
+import redis.clients.jedis.Jedis;
 
 import java.util.*;
 import java.util.Map.Entry;
@@ -30,6 +31,21 @@ public class RedisUtils {
     @Autowired
     private StringRedisTemplate redisTemplate;
 
+
+    /**
+     * 尝试获得锁
+     *
+     * @param jedis   redis实例
+     * @param key     具体的锁
+     * @param value   锁的值，解锁的时候用
+     * @param expTime 锁的失效时间
+     * @return 加锁成功标志
+     */
+    public static boolean lockJedis(Jedis jedis, String key, String value, int expTime) {
+        return "OK".equals(jedis.set(key, value, "NX", "PX", expTime)) ? true : false;
+    }
+
+
     /***
      * 分布式加锁
      * @param key
@@ -37,17 +53,16 @@ public class RedisUtils {
      * @return 锁住返回true
      */
     public boolean lock(String key, String value) {
-        if (redisTemplate.opsForValue().setIfAbsent(key, value)) {//setNX 返回boolean
-            return true;
-        }
-        //如果锁超时 ***
+        //setNX 返回boolean
+        if (redisTemplate.opsForValue().setIfAbsent(key, value)) return true;
+
+        //如果锁超时
         String currentValue = redisTemplate.opsForValue().get(key);
-        if (!StringUtils.isEmpty(currentValue) && Long.parseLong(currentValue) < System.currentTimeMillis()) {
+        //currentValue值是当前时间加上过期时间的时间戳
+        if (StrUtil.isNotEmpty(currentValue) && Long.parseLong(currentValue) < System.currentTimeMillis()) {
             //获取上一个锁的时间
             String oldvalue = redisTemplate.opsForValue().getAndSet(key, value);
-            if (!StringUtils.isEmpty(oldvalue) && oldvalue.equals(currentValue)) {
-                return true;
-            }
+            if (StrUtil.isNotEmpty(oldvalue) && oldvalue.equals(currentValue)) return true;
         }
         return false;
     }
@@ -61,9 +76,8 @@ public class RedisUtils {
     public void unlock(String key, String value) {
         try {
             String currentValue = redisTemplate.opsForValue().get(key);
-            if (!StringUtils.isEmpty(currentValue) && currentValue.equals(value)) {
+            if (StrUtil.isNotEmpty(currentValue) && currentValue.equals(value))
                 redisTemplate.opsForValue().getOperations().delete(key);
-            }
         } catch (Exception e) {
             log.error("解锁异常");
         }
