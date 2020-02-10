@@ -13,6 +13,13 @@ public class CtlHello {
 
 
     @ApiOperation("删除用户1")
+    @RequestMapping("/")
+    public String sayHello0(String astr) {
+        log.info("hello1");
+        return "谢谢观看:这是初始化页面";
+    }
+
+    @ApiOperation("删除用户1")
     @RequestMapping("/hello1")
     public String sayHello(String astr) {
         log.info("hello1");
