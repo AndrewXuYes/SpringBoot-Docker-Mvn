@@ -1,4 +1,4 @@
-package com.example.springboot.demo.FactoryTest;
+package com.example.springboot.demo.factory;
 
 public class Square implements Shape {
     public Square() {

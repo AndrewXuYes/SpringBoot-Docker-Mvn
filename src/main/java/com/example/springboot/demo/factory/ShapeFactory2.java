@@ -1,4 +1,4 @@
-package com.example.springboot.demo.FactoryTest;
+package com.example.springboot.demo.factory;
 
 /**
  * 利用反射解决简单工厂每次增加新了产品类都要修改产品工厂的弊端

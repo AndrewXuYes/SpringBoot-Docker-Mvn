@@ -1,4 +1,4 @@
-package com.example.springboot.demo.SpringTask;
+package com.example.springboot.demo.springtask;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;

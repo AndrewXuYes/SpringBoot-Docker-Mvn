@@ -1,4 +1,4 @@
-package com.example.springboot.demo.DecoratorTest;
+package com.example.springboot.demo.decorator;
 
 public class ManDecoratorB extends Decorator {
 

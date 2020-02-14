@@ -1,4 +1,4 @@
-package com.example.springboot.demo.Aop;
+package com.example.springboot.demo.aop;
 
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;

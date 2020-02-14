@@ -1,4 +1,4 @@
-package com.example.springboot.demo.FactoryTest;
+package com.example.springboot.demo.factory;
 
 public class Circle implements Shape {
     public Circle() {
