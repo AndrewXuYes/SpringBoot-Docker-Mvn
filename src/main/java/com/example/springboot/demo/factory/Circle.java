@@ -1,12 +1,12 @@
 package com.example.springboot.demo.factory;
 
 public class Circle implements Shape {
-	public Circle() {
-		System.out.println("Circle");
-	}
+    public Circle() {
+        System.out.println("Circle");
+    }
 
-	@Override
-	public void draw() {
-		System.out.println("Draw Circle");
-	}
+    @Override
+    public void draw() {
+        System.out.println("Draw Circle");
+    }
 }

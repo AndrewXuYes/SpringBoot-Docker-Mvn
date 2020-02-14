@@ -23,28 +23,28 @@ import java.util.stream.Collectors;
 @Slf4j
 public class WebLogAspect {
 
-	@Pointcut(value = "execution(public * com.example.springboot.demo..*.*(..))")
-	public void webLog() {
-	}
+    @Pointcut(value = "execution(public * com.example.springboot.demo..*.*(..))")
+    public void webLog() {
+    }
 
-	@Around("webLog()")
-	public Object around(ProceedingJoinPoint point) throws Throwable {
-		long beginTime = System.currentTimeMillis();
-		List<Object> logArgs = Arrays.stream(point.getArgs())
-				.filter(arg -> (!(arg instanceof HttpServletRequest) && !(arg instanceof HttpServletResponse)))
-				.collect(Collectors.toList());
-		try {
-			log.info("请求参数={}", JSON.toJSONString(logArgs));
-		} catch (Exception e) {
-			log.error("请求参数获取异常", e);
-		}
-		Object result = point.proceed();
-		long time = System.currentTimeMillis() - beginTime;
-		try {
-			log.info(" 返回结果={},请求耗时={}ms", JSON.toJSONString(result), time);
-		} catch (Exception e) {
-			log.error("返回参数获取异常", e);
-		}
-		return result;
-	}
+    @Around("webLog()")
+    public Object around(ProceedingJoinPoint point) throws Throwable {
+        long beginTime = System.currentTimeMillis();
+        List<Object> logArgs = Arrays.stream(point.getArgs())
+                .filter(arg -> (!(arg instanceof HttpServletRequest) && !(arg instanceof HttpServletResponse)))
+                .collect(Collectors.toList());
+        try {
+            log.info("请求参数={}", JSON.toJSONString(logArgs));
+        } catch (Exception e) {
+            log.error("请求参数获取异常", e);
+        }
+        Object result = point.proceed();
+        long time = System.currentTimeMillis() - beginTime;
+        try {
+            log.info(" 返回结果={},请求耗时={}ms", JSON.toJSONString(result), time);
+        } catch (Exception e) {
+            log.error("返回参数获取异常", e);
+        }
+        return result;
+    }
 }
