@@ -6,24 +6,24 @@ package com.example.springboot.demo.factory;
  * @author Administrator
  */
 public class ShapeFactory2 {
-    public static Object getClass(Class<? extends Shape> clazz) {
-        Object obj = null;
-        try {
-            obj = Class.forName(clazz.getName()).newInstance();
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        return obj;
-    }
+	public static Object getClass(Class<? extends Shape> clazz) {
+		Object obj = null;
+		try {
+			obj = Class.forName(clazz.getName()).newInstance();
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+			e.printStackTrace();
+		}
+		return obj;
+	}
 
 
-    public static void main(String[] args) {
-        Circle circle = (Circle) ShapeFactory2.getClass(Circle.class);
-        circle.draw();
-        Rectangle rectangle = (Rectangle) ShapeFactory2.getClass(Rectangle.class);
-        rectangle.draw();
-        Square square = (Square) ShapeFactory2.getClass(Square.class);
-        square.draw();
-    }
+	public static void main(String[] args) {
+		Circle circle = (Circle) ShapeFactory2.getClass(Circle.class);
+		circle.draw();
+		Rectangle rectangle = (Rectangle) ShapeFactory2.getClass(Rectangle.class);
+		rectangle.draw();
+		Square square = (Square) ShapeFactory2.getClass(Square.class);
+		square.draw();
+	}
 
 }

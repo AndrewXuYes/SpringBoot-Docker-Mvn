@@ -1,12 +1,12 @@
 package com.example.springboot.demo.factory;
 
 public class Square implements Shape {
-    public Square() {
-        System.out.println("Square");
-    }
+	public Square() {
+		System.out.println("Square");
+	}
 
-    @Override
-    public void draw() {
-        System.out.println("Draw Square");
-    }
+	@Override
+	public void draw() {
+		System.out.println("Draw Square");
+	}
 }

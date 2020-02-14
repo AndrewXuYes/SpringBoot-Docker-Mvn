@@ -12,25 +12,25 @@ import org.springframework.web.bind.annotation.RestController;
 public class CtlHello {
 
 
-    @ApiOperation("删除用户1")
-    @RequestMapping("/")
-    public String sayHello0(String astr) {
-        log.info("hello1");
-        return "谢谢观看:这是初始化页面";
-    }
+	@ApiOperation("删除用户1")
+	@RequestMapping("/")
+	public String sayHello0(String astr) {
+		log.info("hello1");
+		return "谢谢观看:这是初始化页面";
+	}
 
-    @ApiOperation("删除用户1")
-    @RequestMapping("/hello1")
-    public String sayHello(String astr) {
-        log.info("hello1");
-        return "谢谢观看:" + astr;
-    }
+	@ApiOperation("删除用户1")
+	@RequestMapping("/hello1")
+	public String sayHello(String astr) {
+		log.info("hello1");
+		return "谢谢观看:" + astr;
+	}
 
-    @RequestMapping("/hello2")
-    public String sayHello2(@Validated User user) {
-        log.info("hello2");
-        return "谢谢观看" + user.getName();
-    }
+	@RequestMapping("/hello2")
+	public String sayHello2(@Validated User user) {
+		log.info("hello2");
+		return "谢谢观看" + user.getName();
+	}
 
 
 }
