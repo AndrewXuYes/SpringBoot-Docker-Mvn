@@ -29,7 +29,7 @@
             <property name="nullCatalogMeansCurrent" value="true" />
         </jdbcConnection>
         <!--指定生成model的路径-->
-        <javaModelGenerator targetPackage="com.example.springboot.demo.mbg.model" targetProject="mdemo\src\main\java"/>
+        <javaModelGenerator targetPackage="com.example.springboot.demo.mbg.model" targetProject="demo\src\main\java"/>
         <!--指定生成mapper.xml的路径-->
         <sqlMapGenerator targetPackage="com.example.springboot.demo.mbg.mapper" targetProject="demo\src\main\resources"/>
         <!--指定生成mapper接口的的路径-->
