@@ -1,9 +1,9 @@
 package com.example.springboot.demo.service;
 
 import com.example.springboot.demo.mbg.model.PmsBrand;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
-
 
 public interface PmsBrandService {
 
