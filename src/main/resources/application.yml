@@ -7,7 +7,7 @@ spring:
   aop:
     auto: true #启动aop配置
   datasource:
-    driver-class-name: com.alibaba.druid.proxy.DruidDriver
+#    driver-class-name: com.alibaba.druid.proxy.DruidDriver
     url: jdbc:mysql://118.89.155.112:3306/MysqlTest?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     username: root
     password: root

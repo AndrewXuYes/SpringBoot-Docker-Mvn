@@ -1,5 +1,6 @@
 package com.example.springboot.demo.common;
 
+
 public enum ResultCode implements IErrorCode {
     SUCCESS(200, "操作成功"),
     FAILED(500, "操作失败"),
@@ -9,7 +10,7 @@ public enum ResultCode implements IErrorCode {
     private long code;
     private String message;
 
-    private ResultCode(long code, String message) {
+    ResultCode(long code, String message) {
         this.code = code;
         this.message = message;
     }
