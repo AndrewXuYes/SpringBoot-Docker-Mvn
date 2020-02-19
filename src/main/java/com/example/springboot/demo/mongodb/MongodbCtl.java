@@ -1,6 +1,6 @@
-package com.example.springboot.demo.Mongodb;
+package com.example.springboot.demo.mongodb;
 
-import com.example.springboot.demo.Dto.User;
+import com.example.springboot.demo.dto.User;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
