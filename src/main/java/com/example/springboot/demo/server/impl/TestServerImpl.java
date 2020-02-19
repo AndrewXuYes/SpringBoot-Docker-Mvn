@@ -9,7 +9,7 @@ public class TestServerImpl implements TestServer {
 
     @Override
     public String listAll() {
-        return "Test";
+        return "TestYes";
     }
 
 }
