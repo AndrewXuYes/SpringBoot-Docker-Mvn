@@ -1,4 +1,4 @@
-package com.example.springboot.demo.Ctl;
+package com.example.springboot.demo.ctl;
 
 import lombok.extern.java.Log;
 import org.springframework.web.bind.annotation.RequestMapping;

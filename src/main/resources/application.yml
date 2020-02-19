@@ -2,8 +2,9 @@ server:
   servlet:
     context-path: /
   port: 8080
-
 spring:
+  aop:
+    auto: true #启动aop配置
   data:
     mongodb:
       host: 118.89.155.112 # mongodb的连接地址
