@@ -1,4 +1,4 @@
-package com.example.springboot.demo.swagger2;
+package config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,6 +19,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class Swagger2 {
 
     //118.89.155.112:8800/swagger-ui.html
+    //http://localhost:8080/swagger-ui.html
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -32,10 +33,10 @@ public class Swagger2 {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("客户管理")
-                .description("客户管理中心 API 1.0 操作文档")
+                .title("这是个Title")
+                .description("这是个description")
                 //服务条款网址
-                .termsOfServiceUrl("http://www.ityouknow.com/")
+                .termsOfServiceUrl("这里是termsOfServiceUrl")
                 .version("1.0")
                 .build();
     }
