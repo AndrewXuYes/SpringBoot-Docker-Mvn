@@ -18,10 +18,9 @@ public class FlagValidatorClass implements ConstraintValidator<FlagValidator, In
     @Override
     public boolean isValid(Integer value, ConstraintValidatorContext constraintValidatorContext) {
         boolean isValid = false;
-        if (value == null) {
-            //当状态为空时使用默认值
-            return true;
-        }
+        //当状态为空时使用默认值
+        if (value == null) return true;
+
         for (int i = 0; i < values.length; i++) {
             if (values[i].equals(String.valueOf(value))) {
                 isValid = true;
