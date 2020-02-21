@@ -1,10 +1,8 @@
 package com.example.springboot.demo.ctl;
 
 import com.example.springboot.demo.aop.Justalog;
-import com.example.springboot.demo.dto.User;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.java.Log;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
