@@ -6,6 +6,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,13 +22,17 @@ import java.util.stream.Collectors;
 @Aspect
 @Component
 @Slf4j
+@Order(2)
 public class WebLogAspect {
 
     @Pointcut("@annotation(Justalog)")
-    public void webLog() {
+    public void LogJust() {
+    }
+    @Pointcut("execution(public * com.example.springboot.demo.ctl.*.*(..))")
+    public void LogAll() {
     }
 
-    @Around("webLog()")
+    @Around("LogJust()")
     public Object around(ProceedingJoinPoint point) throws Throwable {
         long beginTime = System.currentTimeMillis();
         List<Object> logArgs = Arrays.stream(point.getArgs())
