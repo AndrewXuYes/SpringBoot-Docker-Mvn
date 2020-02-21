@@ -1,8 +1,8 @@
 package com.example.springboot.demo.service.impl;
 
-import com.example.springboot.demo.mbg.mapper.PmsBrandMapper;
-import com.example.springboot.demo.mbg.model.PmsBrand;
-import com.example.springboot.demo.mbg.model.PmsBrandExample;
+import com.example.springboot.demo.dao.PmsBrandMapper;
+import com.example.springboot.demo.dto.PmsBrand;
+import com.example.springboot.demo.dto.PmsBrandExample;
 import com.example.springboot.demo.service.PmsBrandService;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;

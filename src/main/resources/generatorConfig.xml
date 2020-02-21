@@ -38,9 +38,7 @@
         <!--指定生成mapper接口的的路径-->
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.example.springboot.demo.dao" targetProject="./src/main/java"/>
         <!--生成全部表tableName设为%-->
-        <table tableName="cms_subject" enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false">
+        <table tableName="pms_brand" >
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
     </context>

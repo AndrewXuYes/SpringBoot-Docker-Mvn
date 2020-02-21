@@ -1,9 +1,8 @@
 package com.example.springboot.demo.ctl;
 
-import com.example.springboot.demo.aop.Justalog;
 import com.example.springboot.demo.common.CommonPage;
 import com.example.springboot.demo.common.CommonResult;
-import com.example.springboot.demo.mbg.model.PmsBrand;
+import com.example.springboot.demo.dto.PmsBrand;
 import com.example.springboot.demo.service.PmsBrandService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,21 +14,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/brand")
+@RequestMapping()
 public class PmsBrandController {
     @Autowired
     private PmsBrandService demoService;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PmsBrandController.class);
-
-
-    @RequestMapping(value = "/123", method = RequestMethod.GET)
-    @ResponseBody
-    @Justalog
-    public String get123() {
-        demoService.getBrand(1L);
-        return "OK";
-    }
 
 
     @RequestMapping(value = "listAll", method = RequestMethod.GET)
