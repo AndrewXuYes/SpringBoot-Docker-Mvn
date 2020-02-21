@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static com.example.springboot.demo.common.ResultCode.FAILED;
+import static com.example.springboot.demo.common.ResultCode.SUCCESS;
+
 @Controller
 @RequestMapping()
 public class PmsBrandController {
@@ -58,16 +61,20 @@ public class PmsBrandController {
         return commonResult;
     }
 
+    public PmsBrandController() {
+        super();
+    }
+
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     @ResponseBody
     public String deleteBrand(@PathVariable("id") Long id) {
         int count = demoService.deleteBrand(id);
         if (count == 1) {
             LOGGER.debug("deleteBrand success :id={}", id);
-            return "Delete success";
+            return SUCCESS.getMessage();
         } else {
             LOGGER.debug("deleteBrand failed :id={}", id);
-            return "Delete fail";
+            return FAILED.getMessage();
         }
     }
 

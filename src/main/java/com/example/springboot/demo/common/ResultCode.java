@@ -18,7 +18,6 @@ public enum ResultCode implements IErrorCode {
     public long getCode() {
         return code;
     }
-
     public String getMessage() {
         return message;
     }
