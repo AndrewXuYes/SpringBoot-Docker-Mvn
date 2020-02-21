@@ -60,14 +60,14 @@ public class PmsBrandController {
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public CommonResult deleteBrand(@PathVariable("id") Long id) {
+    public String deleteBrand(@PathVariable("id") Long id) {
         int count = demoService.deleteBrand(id);
         if (count == 1) {
             LOGGER.debug("deleteBrand success :id={}", id);
-            return CommonResult.success(null);
+            return "Delete success";
         } else {
             LOGGER.debug("deleteBrand failed :id={}", id);
-            return CommonResult.failed("操作失败");
+            return "Delete fail";
         }
     }
 
