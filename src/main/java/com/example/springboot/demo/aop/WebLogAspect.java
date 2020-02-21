@@ -26,10 +26,13 @@ import java.util.stream.Collectors;
 public class WebLogAspect {
 
     @Pointcut("@annotation(Justalog)")
-    public void webLog() {
+    public void LogJust() {
+    }
+    @Pointcut("execution(public * com.example.springboot.demo.ctl.*.*(..))")
+    public void LogAll() {
     }
 
-    @Around("webLog()")
+    @Around("LogJust()")
     public Object around(ProceedingJoinPoint point) throws Throwable {
         long beginTime = System.currentTimeMillis();
         List<Object> logArgs = Arrays.stream(point.getArgs())
