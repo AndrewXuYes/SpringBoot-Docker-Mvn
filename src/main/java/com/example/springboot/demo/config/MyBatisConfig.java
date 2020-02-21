@@ -1,4 +1,4 @@
-package com.example.springboot.demo.mbg;
+package com.example.springboot.demo.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.mybatis.spring.annotation.MapperScan;
