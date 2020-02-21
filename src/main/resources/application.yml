@@ -13,4 +13,9 @@ spring:
     user:
       name: admin
       password: admin
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    data-username: root
+    data-password: root
+    url: jdbc:mysql://118.89.155.112:3306/MysqlTest
 
