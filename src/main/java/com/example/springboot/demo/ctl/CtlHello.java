@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class CtlHello {
 
 
-    @ApiOperation("删除用户1")
+    @ApiOperation("打招呼页面")
     @RequestMapping("/")
     @Justalog
     public String sayHello0(String astr) {
-        log.info("hello1");
+        log.info("hello001");
         return "谢谢观看:这是初始化页面";
     }
 

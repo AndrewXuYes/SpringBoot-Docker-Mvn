@@ -86,9 +86,10 @@ public class PmsBrandController {
         return CommonResult.success(CommonPage.restPage(brandList));
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    @ResponseBody
-    public CommonResult<PmsBrand> brand(@PathVariable("id") Long id) {
-        return CommonResult.success(demoService.getBrand(id));
-    }
+    //引起swagger报错，后续排查
+//    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+//    @ResponseBody
+//    public CommonResult<PmsBrand> brand(@PathVariable("id") Long id) {
+//        return CommonResult.success(demoService.getBrand(id));
+//    }
 }

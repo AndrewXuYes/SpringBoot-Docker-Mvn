@@ -21,7 +21,7 @@
 
     <dependencies>
 
-        <!-- swagger2 -->
+        <!-- swagger2 and knife4j -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
@@ -32,6 +32,16 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <version>2.9.2</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-ui</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.github.xiaoymin</groupId>-->
+<!--            <artifactId>knife4j-spring-boot-starter</artifactId>-->
+<!--            <version>2.0.0</version>-->
+<!--        </dependency>-->
         <!-- hutool -->
         <dependency>
             <groupId>cn.hutool</groupId>

@@ -20,6 +20,8 @@ public class Swagger2 {
 
     //118.89.155.112:8800/swagger-ui.html
     //http://localhost:8080/swagger-ui.html
+    //http://localhost:8080/doc.html
+
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
