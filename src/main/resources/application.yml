@@ -20,6 +20,10 @@ spring:
     username: root
     password: root
     type: com.alibaba.druid.pool.DruidDataSource
+dubbo:
+  application:
+    name:DubboNameSpringBoot
+    registry:nacos://118.89.155.112:8848
 
 mybatis:
   type-aliases-package: com.springboot.demo.model

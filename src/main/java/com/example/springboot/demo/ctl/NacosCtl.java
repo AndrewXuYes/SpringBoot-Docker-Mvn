@@ -1,8 +1,10 @@
 package com.example.springboot.demo.ctl;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.nacos.api.annotation.NacosInjected;
 import com.alibaba.nacos.api.naming.NamingService;
 import com.alibaba.nacos.api.naming.pojo.Instance;
+import com.example.springboot.demo.service.TestService;
 import lombok.extern.java.Log;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +23,11 @@ public class NacosCtl {
     @NacosInjected
     private NamingService namingService;
 
+    @Reference
+    private TestService pmsBrandService;
+
     private RestTemplate restTemplate = new RestTemplate();
+
 
     @RequestMapping(value = "/getOrder")
     @ResponseBody
