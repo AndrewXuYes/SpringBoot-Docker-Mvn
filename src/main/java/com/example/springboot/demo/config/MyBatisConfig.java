@@ -17,4 +17,5 @@ public class MyBatisConfig {
     public DataSource druid() {
         return new DruidDataSource();
     }
+
 }
