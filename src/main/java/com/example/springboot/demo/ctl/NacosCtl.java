@@ -17,7 +17,7 @@ public class NacosCtl {
     @NacosValue(value = "${nacos.ip}")
     private String nacosIp;
 
-    @RequestMapping("/test")
+    @RequestMapping("/nacostest")
     public String test(String name) {
         log.info("nacosIp==" + nacosIp);
         return nacosIp;
