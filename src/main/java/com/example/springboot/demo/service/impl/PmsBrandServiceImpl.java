@@ -6,11 +6,13 @@ import com.example.springboot.demo.dto.PmsBrandExample;
 import com.example.springboot.demo.service.PmsBrandService;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Component
 public class PmsBrandServiceImpl implements PmsBrandService {
 
     @Autowired

@@ -13,14 +13,18 @@ spring:
     user:
       name: admin
       password: admin
-
-
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://118.89.155.112:3306/MysqlTest?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://118.89.155.112:3306/sys?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     username: root
     password: root
     type: com.alibaba.druid.pool.DruidDataSource
+  dubbo:
+    registry:
+      address: nacos://118.89.155.112:8848
+    protocol:
+      name: dubbo
+      port: 20880
 
 mybatis:
   type-aliases-package: com.springboot.demo.model
