@@ -36,5 +36,8 @@ pagehelper:
   supportMethodsArguments: true
   params: count=countSql
 
+nacos:
+  config:
+    server-addr: 118.89.155.112:8848
 
 
