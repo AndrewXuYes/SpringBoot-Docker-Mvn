@@ -13,7 +13,7 @@ public class CtlHello {
     @ApiOperation("打招呼页面")
     @RequestMapping("/")
     @Justalog
-    public String sayHello0(String astr) {
+    public String hello(String astr) {
         log.info("hello001");
         return "谢谢观看:这是初始化页面";
     }

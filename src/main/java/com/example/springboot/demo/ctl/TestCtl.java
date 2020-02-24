@@ -1,13 +1,10 @@
 package com.example.springboot.demo.ctl;
 
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.example.springboot.demo.service.TestService;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 
 
 /**
@@ -24,7 +21,7 @@ public class TestCtl {
 
 
     @RequestMapping("/test")
-    public String sayHello0(@RequestParam("name") String name) {
+    public String test(String name) {
         log.info("hello-test==" + testService.get(name));
         return testService.get(name);
     }
