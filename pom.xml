@@ -9,18 +9,17 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example.springboot</groupId>
-    <artifactId>aspringboot</artifactId>
+    <artifactId>aspringbootartifactId</artifactId>
     <version>0.0.3</version>
-    <name>aspringboot</name>
+    <name>aspringbootname</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
         <java.version>1.8</java.version>
-        <docker.image.prefix>springboottest</docker.image.prefix>
+        <docker.image.prefix>springbootdocker</docker.image.prefix>
     </properties>
 
     <dependencies>
-
         <!-- swagger2 and knife4j -->
         <dependency>
             <groupId>io.springfox</groupId>
@@ -28,20 +27,11 @@
             <version>2.9.2</version>
         </dependency>
         <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.9.2</version>
-        </dependency>
-        <dependency>
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-spring-ui</artifactId>
             <version>2.0.0</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.github.xiaoymin</groupId>-->
-<!--            <artifactId>knife4j-spring-boot-starter</artifactId>-->
-<!--            <version>2.0.0</version>-->
-<!--        </dependency>-->
+
         <!-- hutool -->
         <dependency>
             <groupId>cn.hutool</groupId>
@@ -60,17 +50,6 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.62</version>
         </dependency>
-        <!-- apache -->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-pool2</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.1</version>
-        </dependency>
-
         <!--MyBatis分页插件-->
         <dependency>
             <groupId>com.github.pagehelper</groupId>
@@ -113,12 +92,14 @@
     </dependencies>
 
     <build>
+
         <plugins>
+            <!-- springboot启动插件 -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-
+            <!-- docker自动化构建插件 -->
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
@@ -147,6 +128,7 @@
                     </resources>
                 </configuration>
             </plugin>
+            <!-- mybatis自动化构建插件 -->
             <plugin>
                 <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-maven-plugin</artifactId>
