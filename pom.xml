@@ -9,14 +9,14 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example.springboot</groupId>
-    <artifactId>aspringboot</artifactId>
+    <artifactId>aspringbootartifactId</artifactId>
     <version>0.0.3</version>
-    <name>aspringboot</name>
+    <name>aspringbootname</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
         <java.version>1.8</java.version>
-        <docker.image.prefix>springboottest</docker.image.prefix>
+        <docker.image.prefix>springbootdocker</docker.image.prefix>
     </properties>
 
     <dependencies>
