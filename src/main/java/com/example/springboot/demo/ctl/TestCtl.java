@@ -4,19 +4,21 @@ import com.example.springboot.demo.aop.Justalog;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.java.Log;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * @author andrew
+ * @date 2020/2/24 22:26
+ */
 @Log
 @RestController
-public class CtlHello {
+public class TestCtl {
 
     @ApiOperation("打招呼页面")
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping("/test")
     @Justalog
     public String sayHello0(String astr) {
-        log.info("hello001");
-        return "谢谢观看:这是初始化页面";
+        log.info("hello-test");
+        return "谢谢观看:这是test页面";
     }
-
 }
