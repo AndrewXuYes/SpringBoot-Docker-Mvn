@@ -7,10 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DemoApplication {
     /**
      * TODO
-     * Kafka
-     * Dobbo Zk Nacos
-     * 微服务调用
-     * 微服务监控
+     * SpringClould全一套
      *
      */
 

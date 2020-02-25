@@ -4,6 +4,7 @@ import com.example.springboot.demo.aop.Justalog;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.java.Log;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -12,7 +13,7 @@ public class CtlHello {
 
 
     @ApiOperation("打招呼页面")
-    @RequestMapping("/")
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     @Justalog
     public String sayHello0(String astr) {
         log.info("hello001");
