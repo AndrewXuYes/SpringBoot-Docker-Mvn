@@ -19,6 +19,7 @@ public class TestCtl {
     @Justalog
     public String sayHello0(String astr) {
         log.info("hello-test");
+        log.info("打招呼页面");
         return "谢谢观看:这是test页面";
     }
 }
