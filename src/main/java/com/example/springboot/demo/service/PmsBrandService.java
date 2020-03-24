@@ -1,6 +1,7 @@
 package com.example.springboot.demo.service;
 
 import com.example.springboot.demo.dto.PmsBrand;
+import lombok.Data;
 
 import java.util.List;
 
